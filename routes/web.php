@@ -14,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/signup', [SignupController::class, 'index']);
+Route::get('/signup', [SignupController::class, 'index'])->name('signup');
