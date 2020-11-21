@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\SignupController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,4 +15,5 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
+Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 Route::get('/signup', [SignupController::class, 'index'])->name('signup');
