@@ -9,6 +9,9 @@
 </head>
 <body>
 	@include('layouts.partials.navbar')
+	<div class="container-fluid">
+		@yield('content')
+	</div>
 	<!-- Scripts -->
 	<script src="{{ asset('js/app.js') }}" defer></script>
 </body>
