@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
-	@include('layouts._navbar')
+	@include('layouts.partials.navbar')
 	<!-- Scripts -->
 	<script src="{{ asset('js/app.js') }}" defer></script>
 </body>
