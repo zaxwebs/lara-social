@@ -16,6 +16,9 @@ class SignupController extends Controller
 
     public function store(Request $request)
     {
+        //specify alert location
+        $request->session()->flash('alert.location', 'signup');
+
         // validate
         $this->validate($request,
             [
@@ -40,10 +43,17 @@ class SignupController extends Controller
             'first_name' => $request->get('signup_first_name'),
             'last_name' => $request->get('signup_last_name'),
             'email' => $request->get('signup_email'),
-            'password' => Hash::make($request->get('signup_first_name')),
+            'password' => Hash::make($request->get('signup_password')),
         ]);
-        // sign in
-        auth()->attempt(['email' => $request->signup_email, 'password' => $request->signup_password]);
+
+        // attempt sign in
+        if (!auth()->attempt(['email' => $request->signup_email, 'password' => $request->signup_password])) {
+            return redirect('/')->with('danger', 'Account created but login failed.');
+        }
+
+        //unset alert location
+        $request->session()->forget('alert.location');
+
         // redirect
         return redirect('/')->with('success', 'Welcome to ' . config('app.name') . '. Your account was created successfully.');
 

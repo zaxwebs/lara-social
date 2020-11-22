@@ -10,7 +10,12 @@
 <body>
 	@include('layouts.partials.navbar')
 	<div class="container-fluid">
-		@include('layouts.partials.alert')
+		@auth
+			<div class="alert alert-info">Logged in.</div>
+		@endauth
+		@if(!Session::has('alert.location'))
+			@include('layouts.partials.alert')
+		@endif
 		@yield('content')
 	</div>
 	<!-- Scripts -->

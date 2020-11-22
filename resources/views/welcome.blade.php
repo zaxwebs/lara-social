@@ -11,14 +11,18 @@
 			<div class="col-md-6 col-lg-4">
 				<div class="panel">
 					<h1>Login</h1>
-					<form>
+					@if(Session::get('alert.location') === 'login')
+						@include('layouts.partials.alert')
+					@endif
+					<form method="post" action="{{ route('login') }}">
+						@csrf
 						<div class="form-group">
-							<label for="email">Email address</label>
-							<input type="email" class="form-control" id="email" placeholder="Enter email">
+							<label for="login_email">Email address</label>
+							<input name="login_email" type="email" class="form-control" id="login_email" placeholder="Enter email" value="{{ old('login_email') }}">
 						</div>
 						<div class="form-group">
-							<label for="password">Password</label>
-							<input type="password" class="form-control" id="password" placeholder="Password">
+							<label for="login_password">Password</label>
+							<input name="login_password" type="password" class="form-control" id="login_password" placeholder="Password">
 						</div>
 						<div class="form-check mb-3">
 							<input name="remember" type="checkbox" class="form-check-input" id="remember">
@@ -31,14 +35,8 @@
 			<div class="col-md-6 col-lg-4">
 				<div class="panel">
 					<h1>Signup</h1>
-					@if ($errors->any())
-						<div class="alert alert-danger">
-								<ul>
-										@foreach ($errors->all() as $error)
-												<li>{{ $error }}</li>
-										@endforeach
-								</ul>
-						</div>
+					@if(Session::get('alert.location') === 'signup')
+						@include('layouts.partials.alert')
 					@endif
 					<form method="post" action="{{ route('signup') }}">
 						@csrf
