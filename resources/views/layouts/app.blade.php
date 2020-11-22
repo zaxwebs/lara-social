@@ -10,6 +10,7 @@
 <body>
 	@include('layouts.partials.navbar')
 	<div class="container-fluid">
+		@include('layouts.partials.alert')
 		@yield('content')
 	</div>
 	<!-- Scripts -->

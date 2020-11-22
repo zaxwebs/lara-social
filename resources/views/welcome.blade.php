@@ -5,7 +5,7 @@
 			<div class="col-md-6 col-lg-4">
 				<div class="p-3">
 					<h1 class="mb-3">{{ config('app.name') }} by Zack Webster.</h1>
-					<img src="{{ asset('images/shore.jpg') }}" alt="cover" class="img-fluid mb-3">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu suscipit elit, at imperdiet orci. Cras commodo eget eros vitae pharetra. Donec sit amet hendrerit ligula, sit amet efficitur elit. Curabitur vel purus sem. Donec feugiat erat felis, vel interdum velit consectetur fringilla. Curabitur vitae suscipit sapien, eget scelerisque justo. Maecenas rhoncus vulputate turpis, vitae pulvinar dolor efficitur ac.</p>
 				</div>
 			</div>
 			<div class="col-md-6 col-lg-4">

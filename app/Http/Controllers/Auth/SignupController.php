@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class SignupController extends Controller
 {
@@ -34,10 +36,16 @@ class SignupController extends Controller
             ]);
 
         // store
-
+        User::create([
+            'first_name' => $request->get('signup_first_name'),
+            'last_name' => $request->get('signup_last_name'),
+            'email' => $request->get('signup_email'),
+            'password' => Hash::make($request->get('signup_first_name')),
+        ]);
         // sign in
-
+        auth()->attempt(['email' => $request->signup_email, 'password' => $request->signup_password]);
         // redirect
+        return redirect('/')->with('success', 'Welcome to ' . config('app.name') . '. Your account was created successfully.');
 
     }
 }

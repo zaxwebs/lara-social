@@ -30,6 +30,9 @@
 					<a class="dropdown-item" href="#">Action</a>
 					<a class="dropdown-item" href="#">Another action</a>
 					<a class="dropdown-item" href="#">Something else here</a>
+					<form class="dropdown-item p-0" method="post" action="">
+						<button class="btn btn-link px-4 py-1 w-100 text-left" role="link">Logout</button>
+					</form>
 				</div>
 			</li>
 		</ul>
