@@ -17,3 +17,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 Route::get('/signup', [SignupController::class, 'index'])->name('signup');
+Route::post('/signup', [SignupController::class, 'store'])->name('signup');
