@@ -32,7 +32,9 @@ class SignupController extends Controller
                 'signup_email' => 'email address',
                 'signup_password' => 'password',
             ]);
+
         // store
+
         // sign in
 
         // redirect

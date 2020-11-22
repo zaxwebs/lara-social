@@ -5,7 +5,7 @@
 			<div class="col-md-6 col-lg-4">
 				<div class="p-3">
 					<h1 class="mb-3">{{ config('app.name') }} by Zack Webster.</h1>
-					<img src="{{ asset('images/art.svg') }}" alt="moonlight" class="img-fluid mb-3">
+					<img src="{{ asset('images/shore.jpg') }}" alt="cover" class="img-fluid mb-3">
 				</div>
 			</div>
 			<div class="col-md-6 col-lg-4">
