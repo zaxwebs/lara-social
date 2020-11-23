@@ -16,6 +16,13 @@
 				<button type="submit" class="btn btn-primary">Publish your post</button>
 			</form>
 		</div>
+
+		@foreach ($posts as $post)
+				<div class="panel">
+					{{ $post->body }}
+				</div>
+		@endforeach
+
 	</div>
 </div>
 @endsection
