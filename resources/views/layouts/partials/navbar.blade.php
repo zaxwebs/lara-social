@@ -12,7 +12,7 @@
 				<a class="nav-link" href="{{ route('home') }}">Home<span class="sr-only">(current)</span></a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">Profile</a>
+				<a class="nav-link" href="{{ route('profile') }}">Profile</a>
 			</li>
 			@endauth
 			<li class="nav-item">
