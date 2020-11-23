@@ -50,12 +50,17 @@
 						</div>
 						<div class="form-group">
 							<label for="signup_email">Email address</label>
-							<input name="signup_email" type="email" class="form-control" id="signup_email" aria-describedby="signup_email_help" placeholder="Enter email" value={{ old('signup_email') }}>
+							<input name="signup_email" type="email" class="form-control" id="signup_email" aria-describedby="signup_email_help" value={{ old('signup_email') }}>
 							<small id="signup_email_help" class="form-text text-muted">We'll never share your email with anyone else.</small>
 						</div>
 						<div class="form-group">
+							<label for="signup_username">Username</label>
+							<input name="signup_username" type="text" class="form-control" id="signup_username" aria-describedby="signup_username_help" placeholder="E.g. zackW04" value={{ old('signup_username') }}>
+							<small id="signup_username_help" class="form-text text-muted">Username can only contain letters and numbers.</small>
+						</div>
+						<div class="form-group">
 							<label for="signup_password">Password</label>
-							<input name="signup_password" type="password" class="form-control" id="signup_password" placeholder="Password">
+							<input name="signup_password" type="password" class="form-control" id="signup_password">
 						</div>
 						<div class="form-group">
 							<label for="confirm_password">Confrim password</label>

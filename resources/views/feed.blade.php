@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row">
-	<div class="col-md-6 col-lg-4">
+	<div class="col-lg-6 col-xl-4 offset-xl-4">
 		<div class="panel">
 			<form method="post" action="#">
 				<div class="form-group">

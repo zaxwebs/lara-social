@@ -25,6 +25,7 @@ class SignupController extends Controller
                 'signup_first_name' => 'required|max:30|alpha',
                 'signup_last_name' => 'required|max:30|alpha',
                 'signup_email' => 'required|email|unique:users,email',
+                'signup_username' => 'required|alpha_num|unique:users,username',
                 'signup_password' => 'required|min:6|confirmed',
                 'signup_tc' => 'accepted',
             ],
@@ -35,6 +36,7 @@ class SignupController extends Controller
                 'signup_first_name' => 'first name',
                 'signup_last_name' => 'last name',
                 'signup_email' => 'email address',
+                'signup_username' => 'username',
                 'signup_password' => 'password',
             ]);
 
@@ -43,6 +45,7 @@ class SignupController extends Controller
             'first_name' => $request->get('signup_first_name'),
             'last_name' => $request->get('signup_last_name'),
             'email' => $request->get('signup_email'),
+            'username' => $request->get('signup_username'),
             'password' => Hash::make($request->get('signup_password')),
         ]);
 
