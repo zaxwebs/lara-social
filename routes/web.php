@@ -18,9 +18,15 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
-Route::get('/signup', [SignupController::class, 'index'])->name('signup');
-Route::post('/signup', [SignupController::class, 'store'])->name('signup');
-Route::post('/login', [LoginController::class, 'store'])->name('login');
-Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
-Route::get('/home', [FeedController::class, 'index'])->name('home');
+Route::middleware(['guest'])->group(function () {
+    Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
+    Route::get('/signup', [SignupController::class, 'index'])->name('signup');
+    Route::get('/login', [LoginController::class, 'index'])->name('signup');
+    Route::post('/signup', [SignupController::class, 'store'])->name('signup');
+    Route::post('/login', [LoginController::class, 'store'])->name('login');
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
+    Route::get('/home', [FeedController::class, 'index'])->name('home');
+});

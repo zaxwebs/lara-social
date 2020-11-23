@@ -6,6 +6,6 @@ class FeedController extends Controller
 {
     public function index()
     {
-        return 'FeedController.index';
+        return view('feed');
     }
 }
