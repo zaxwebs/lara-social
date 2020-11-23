@@ -17,12 +17,12 @@
 					<form method="post" action="{{ route('login') }}">
 						@csrf
 						<div class="form-group">
-							<label for="login_email">Email address</label>
-							<input name="login_email" type="email" class="form-control" id="login_email" placeholder="Enter email" value="{{ old('login_email') }}">
+							<label for="login_email_username">Email or username</label>
+							<input name="login_email_username" type="text" class="form-control" id="login_email_username" value="{{ old('login_email_username') }}">
 						</div>
 						<div class="form-group">
 							<label for="login_password">Password</label>
-							<input name="login_password" type="password" class="form-control" id="login_password" placeholder="Password">
+							<input name="login_password" type="password" class="form-control" id="login_password">
 						</div>
 						<div class="form-check mb-3">
 							<input name="login_remember" type="checkbox" class="form-check-input" id="remember" checked>
@@ -55,7 +55,7 @@
 						</div>
 						<div class="form-group">
 							<label for="signup_username">Username</label>
-							<input name="signup_username" type="text" class="form-control" id="signup_username" aria-describedby="signup_username_help" placeholder="E.g. zackW04" value={{ old('signup_username') }}>
+							<input name="signup_username" type="text" class="form-control" id="signup_username" aria-describedby="signup_username_help" value={{ old('signup_username') }}>
 							<small id="signup_username_help" class="form-text text-muted">Username can only contain letters and numbers.</small>
 						</div>
 						<div class="form-group">

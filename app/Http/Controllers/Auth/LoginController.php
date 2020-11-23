@@ -20,18 +20,20 @@ class LoginController extends Controller
         // validate
         $this->validate($request,
             [
-                'login_email' => 'required|email',
+                'login_email_username' => 'required',
                 'login_password' => 'required',
             ],
             [],
             [
-                'login_email' => 'email address',
+                'login_email_username' => 'email or username',
                 'login_password' => 'password',
             ]);
 
         $remember = $request->login_remember === 'on' ? true : false;
 
-        if (!auth()->attempt(['email' => $request->login_email, 'password' => $request->login_password], $remember)) {
+        $login_type = filter_var($request->login_email_username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+
+        if (!auth()->attempt([$login_type => $request->login_email_username, 'password' => $request->login_password], $remember)) {
             return redirect()->back()->with('danger', 'Invalid login credentials. Please try again.');
         }
 
