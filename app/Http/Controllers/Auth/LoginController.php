@@ -24,7 +24,9 @@ class LoginController extends Controller
                 'login_password' => 'password',
             ]);
 
-        if (!auth()->attempt(['email' => $request->login_email, 'password' => $request->login_password])) {
+        $remember = $request->login_remember === 'on' ? true : false;
+
+        if (!auth()->attempt(['email' => $request->login_email, 'password' => $request->login_password], $remember)) {
             return redirect()->back()->with('danger', 'Invalid login credentials. Please try again.');
         }
 
