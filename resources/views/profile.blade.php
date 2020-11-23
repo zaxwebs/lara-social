@@ -19,7 +19,10 @@
 
 		@foreach ($posts as $post)
 				<div class="panel">
+					<div><a href="{{ route('profile') }}/{{ $post->user->username }}">{{ $post->user->full_name }}</a></div>
+					<div>
 					{{ $post->body }}
+					</div>
 				</div>
 		@endforeach
 
