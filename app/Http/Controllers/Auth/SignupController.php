@@ -22,10 +22,10 @@ class SignupController extends Controller
         // validate
         $this->validate($request,
             [
-                'signup_first_name' => 'required|max:30',
-                'signup_last_name' => 'required|max:30',
+                'signup_first_name' => 'required|max:30|alpha',
+                'signup_last_name' => 'required|max:30|alpha',
                 'signup_email' => 'required|email|unique:users,email',
-                'signup_password' => 'required|confirmed',
+                'signup_password' => 'required|min:6|confirmed',
                 'signup_tc' => 'accepted',
             ],
             [
