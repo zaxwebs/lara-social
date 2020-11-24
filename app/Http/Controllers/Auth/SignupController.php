@@ -58,7 +58,7 @@ class SignupController extends Controller
         $request->session()->forget('alert.location');
 
         // redirect
-        return redirect('/')->with('success', 'Welcome to ' . config('app.name') . '. Your account was created successfully.');
+        return redirect('/home')->with('success', 'Welcome to ' . config('app.name') . '. Your account was created successfully.');
 
     }
 }
