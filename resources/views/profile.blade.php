@@ -4,7 +4,12 @@
 <div class="row">
 	<div class="col-lg-6 col-xl-4 offset-xl-4">
 		<div class="panel">
-			<h1>{{ $user->full_name }}</h1>
+			
+			<div class="d-flex justify-content-between">
+				<h1>{{ $user->full_name }}</h1>
+				<h3 class="text-muted">{{ $user->username }}</h3>
+			</div>
+			
 			<div class="mb-3">
 				<h5>About</h5>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus arcu sem, consequat sit amet tincidunt id, egestas imperdiet ipsum. Aenean nec tristique ante.
