@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+
 class ProfileController extends Controller
 {
     public function show(User $user = null)
     {
-        // if no username
 
         if ($user === null) {
             $user = auth()->user();
@@ -14,6 +15,6 @@ class ProfileController extends Controller
 
         $posts = $user->posts;
 
-        return view('profile', compact('posts'));
+        return view('profile', compact('user', 'posts'));
     }
 }
