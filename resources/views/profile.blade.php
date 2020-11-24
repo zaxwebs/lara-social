@@ -3,6 +3,8 @@
 @section('content')
 <div class="row">
 	<div class="col-lg-6 col-xl-4 offset-xl-4">
+
+		@if($user->username === auth()->user()->username)
 		<div class="panel">
 			@if(Session::get('alert.location') === 'post')
 				@include('layouts.partials.alert')
@@ -16,6 +18,7 @@
 				<button type="submit" class="btn btn-primary">Publish your post</button>
 			</form>
 		</div>
+		@endif
 
 		@foreach ($posts as $post)
 				<div class="panel">
