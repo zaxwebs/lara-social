@@ -3,6 +3,9 @@
 @section('content')
 <div class="row">
 	<div class="col-lg-6 col-xl-4 offset-xl-4">
+		<div class="panel">
+			<h1>{{ $user->full_name }}</h1>
+		</div>
 
 		@if($user->username === auth()->user()->username)
 		<div class="panel">
