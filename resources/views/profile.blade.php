@@ -19,9 +19,12 @@
 
 		@foreach ($posts as $post)
 				<div class="panel">
-					<div><a href="{{ route('profile') }}/{{ $post->user->username }}">{{ $post->user->full_name }}</a></div>
+					<div class="d-flex justify-content-between">
+						<div><a href="{{ route('profile') }}/{{ $post->user->username }}">{{ $post->user->full_name }}</a></div>
+						<small class="text-muted">{{ $post->created_at->diffForHumans() }}</small>
+					</div>
 					<div>
-					{{ $post->body }}
+					{!! nl2br(e($post->body)) !!}
 					</div>
 				</div>
 		@endforeach
