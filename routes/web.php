@@ -33,4 +33,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/home', [FeedController::class, 'index'])->name('home');
     Route::post('/post', [PostController::class, 'store'])->name('post');
     Route::get('/profile/{user:username?}', [ProfileController::class, 'show'])->name('profile');
+    Route::post('/follow/{user}', [FollowController::class, 'store'])->name('follow');
 });
