@@ -66,6 +66,11 @@ class User extends Authenticatable
         return $this->follows()->count();
     }
 
+    public function getFollowerCountAttribute()
+    {
+        return Follow::where('followed_id', $this->id)->count();
+    }
+
     public function getIsFollowedAttribute()
     {
         // to do
