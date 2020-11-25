@@ -26,7 +26,7 @@
 				</div>
 				<div>
 					<h5>Following</h5>
-					0
+					{{ $user->following_count }}
 				</div>
 			</div>
 
