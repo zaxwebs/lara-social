@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Follow;
 use App\Models\Post;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -39,7 +40,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $appends = ['full_name'];
+    protected $appends = ['full_name', 'is_viewer'];
 
     /**
      * The attributes that should be cast to native types.
@@ -55,8 +56,18 @@ class User extends Authenticatable
         return "{$this->first_name} {$this->last_name}";
     }
 
+    public function getIsViewerAttribute()
+    {
+        return $this->id === auth()->user()->id;
+    }
+
     public function posts()
     {
         return $this->hasMany(Post::class)->orderBy('created_at', 'desc');
+    }
+
+    public function follows()
+    {
+        return $this->hasMany(Follow::class)->orderBy('created_at', 'desc');
     }
 }

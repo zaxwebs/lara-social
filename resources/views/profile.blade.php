@@ -14,13 +14,25 @@
 				<h5>About</h5>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus arcu sem, consequat sit amet tincidunt id, egestas imperdiet ipsum. Aenean nec tristique ante.
 			</div>
-			<div>
-				<h5>Posts</h5>
-				{{ $user->posts->count() }}
+
+			<div class=" mb-3 d-flex justify-content-between">
+				<div>
+					<h5>Posts</h5>
+					{{ $user->posts->count() }}
+				</div>
+				<div>
+					<h5>Followers</h5>
+					0
+				</div>
+				<div>
+					<h5>Following</h5>
+					0
+				</div>
 			</div>
 		</div>
 
-		@if($user->username === auth()->user()->username)
+
+		@if($user->is_viewer)
 		<div class="panel">
 			@if(Session::get('alert.location') === 'post')
 				@include('layouts.partials.alert')
