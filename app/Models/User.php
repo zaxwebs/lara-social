@@ -40,7 +40,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $appends = ['full_name', 'is_viewer'];
+    protected $appends = ['full_name', 'is_viewer', 'is_followed'];
 
     /**
      * The attributes that should be cast to native types.
@@ -59,6 +59,12 @@ class User extends Authenticatable
     public function getIsViewerAttribute()
     {
         return $this->id === auth()->user()->id;
+    }
+
+    public function getIsFollowedAttribute()
+    {
+        // to do
+        return auth()->user()->follows()->where('followed_id', $this->id)->count() > 0;
     }
 
     public function posts()

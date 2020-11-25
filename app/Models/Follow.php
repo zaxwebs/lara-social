@@ -13,4 +13,16 @@ class Follow extends Model
         'user_id',
         'followed_id',
     ];
+
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = ['is_viewer_follower'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

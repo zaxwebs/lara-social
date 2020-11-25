@@ -29,6 +29,29 @@
 					0
 				</div>
 			</div>
+
+			@if(!$user->is_viewer)
+			<div>
+				@if(!$user->is_followed)
+					<form method="post" action="{{ route('follow', $user) }}">
+						@csrf
+						<button class="btn btn-primary" role="link">Follow</button>
+					</form>
+				@else
+					<form method="post" action="{{ route('follow', $user) }}">
+						@csrf
+						<div class="dropdown">
+							<button class="btn btn-primary dropdown-toggle" type="button" id="following-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Following
+							</button>
+							<div class="dropdown-menu" aria-labelledby="following-dropdown">
+								<a class="dropdown-item" href="#">Action</a>
+							</div>
+						</div>
+					</form>
+				@endif
+			</div>
+			@endif
 		</div>
 
 

@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\SignupController;
 use App\Http\Controllers\FeedController;
+use App\Http\Controllers\FollowController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WelcomeController;
@@ -33,5 +34,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/home', [FeedController::class, 'index'])->name('home');
     Route::post('/post', [PostController::class, 'store'])->name('post');
     Route::get('/profile/{user:username?}', [ProfileController::class, 'show'])->name('profile');
-    Route::post('/follow/{user}', [FollowController::class, 'store'])->name('follow');
+    Route::post('/follow/{user:username}', [FollowController::class, 'store'])->name('follow');
 });
