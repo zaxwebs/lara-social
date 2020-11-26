@@ -82,10 +82,15 @@
 					<div>
 						@if($user->is_viewer)
 							@if(!$post->is_highlighted)
-							<form method="post" action="{{ route('highlight', $post) }}">
-								@csrf
-								<button class="btn btn-link btn-sm p-0">Highlight</button>
-							</form>
+								<form method="post" action="{{ route('highlight', $post) }}">
+									@csrf
+									<button class="btn btn-link btn-sm p-0">Highlight</button>
+								</form>
+							@else
+								<form method="post" action="{{ route('unhighlight', $post) }}">
+									@csrf
+									<button class="btn btn-link btn-sm p-0">Unhighlight</button>
+								</form>
 							@endif 
 						@endif
 					</div>

@@ -14,10 +14,12 @@ class FollowController extends Controller
         if ($user->is_viewer) {
             return redirect()->back();
         }
+
         // if user is already following
         if (Follow::where('user_id', auth()->user()->id)->where('followed_id', $user->id)->count() > 0) {
             return redirect()->back()->with('info', "You are already following {$user->first_name}.");
         }
+
         // store
         Follow::create([
             'user_id' => auth()->user()->id,
