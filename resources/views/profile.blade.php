@@ -38,17 +38,17 @@
 						<button class="btn btn-primary" role="link">Follow</button>
 					</form>
 				@else
-					<form method="post" action="{{ route('follow', $user) }}">
-						@csrf
 						<div class="dropdown">
 							<button class="btn btn-primary dropdown-toggle" type="button" id="following-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Following
 							</button>
 							<div class="dropdown-menu" aria-labelledby="following-dropdown">
-								<a class="dropdown-item" href="#">Action</a>
+								<form class="dropdown-item p-0" method="post" action="{{ route('unfollow', $user) }}">
+									@csrf
+									<button class="btn btn-link px-4 py-1 w-100 text-left" role="link">Unfollow</button>
+								</form>
 							</div>
 						</div>
-					</form>
 				@endif
 			</div>
 			@endif
