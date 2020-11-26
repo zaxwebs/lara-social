@@ -9,7 +9,7 @@
 </head>
 <body>
 	@include('layouts.partials.navbar')
-	<div class="container-fluid">
+	<div class="@yield('container', 'container-fluid')">
 		@if(!Session::has('alert.location'))
 			@include('layouts.partials.alert')
 		@endif

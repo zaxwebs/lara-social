@@ -1,8 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.sidebars')
 
-@section('content')
-<div class="row">
-	<div class="col-lg-6 col-xl-4 offset-xl-4">
+@section('middle')
+
 		<div class="panel">
 			
 			<div class="d-flex justify-content-between">
@@ -82,7 +81,5 @@
 					</div>
 				</div>
 		@endforeach
-
-	</div>
-</div>
+		
 @endsection
