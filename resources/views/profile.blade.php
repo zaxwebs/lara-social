@@ -76,10 +76,18 @@
 						<div><a href="{{ route('profile') }}/{{ $post->user->username }}">{{ $post->user->full_name }}</a></div>
 						<small class="text-muted">{{ $post->created_at->diffForHumans() }}</small>
 					</div>
-					<div>
+					<div class="mb-2">
 					{!! nl2br(e($post->body)) !!}
+					</div>
+					<div>
+						@if($user->is_viewer)
+							<form method="post" action="{{ route('highlight', $post) }}">
+								@csrf
+								<button class="btn btn-link btn-sm p-0">Highlight</button>
+							</form>
+						@endif
 					</div>
 				</div>
 		@endforeach
-		
+
 @endsection

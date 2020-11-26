@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\SignupController;
 use App\Http\Controllers\FeedController;
 use App\Http\Controllers\FollowController;
+use App\Http\Controllers\HighlightController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UnfollowController;
@@ -37,4 +38,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profile/{user:username?}', [ProfileController::class, 'show'])->name('profile');
     Route::post('/follow/{user:username}', [FollowController::class, 'store'])->name('follow');
     Route::post('/unfollow/{user:username}', [UnfollowController::class, 'store'])->name('unfollow');
+    Route::post('/highlight/{post}', [HighlightController::class, 'store'])->name('highlight');
 });
