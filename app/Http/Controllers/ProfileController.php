@@ -13,7 +13,7 @@ class ProfileController extends Controller
             $user = auth()->user();
         }
 
-        $posts = $user->posts()->simplePaginate(2);
+        $posts = $user->posts()->simplePaginate(10);
 
         return view('profile', compact('user', 'posts'));
     }
