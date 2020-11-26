@@ -40,7 +40,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $appends = ['full_name', 'is_viewer', 'is_followed', 'following_count'];
+    protected $appends = ['full_name', 'is_viewer', 'is_followed', 'following_count', 'follower_count'];
 
     /**
      * The attributes that should be cast to native types.

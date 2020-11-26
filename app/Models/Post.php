@@ -15,8 +15,16 @@ class Post extends Model
         'body',
     ];
 
+    protected $appends = ['is_highlighted'];
+
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function getIsHighlightedAttribute()
+    {
+        // to do
+        return $this->highlighted === 1;
     }
 }

@@ -81,10 +81,12 @@
 					</div>
 					<div>
 						@if($user->is_viewer)
+							@if(!$post->is_highlighted)
 							<form method="post" action="{{ route('highlight', $post) }}">
 								@csrf
 								<button class="btn btn-link btn-sm p-0">Highlight</button>
 							</form>
+							@endif 
 						@endif
 					</div>
 				</div>
