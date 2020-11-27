@@ -97,7 +97,7 @@
 							@else
 								<form method="post" action="{{ route('unhighlight', $post) }}">
 									@csrf
-									<button class="btn btn-link btn-sm p-0">Unhighlight</button>
+									<button class="btn btn-link btn-sm p-0">Highlighted</button>
 								</form>
 							@endif 
 						@endif
