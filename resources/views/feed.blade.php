@@ -5,7 +5,7 @@
 	<div class="col-lg-6 col-xl-4 offset-xl-4">
 		<div class="panel">
 			@if(Session::get('alert.location') === 'post')
-				@include('layouts.partials.alert')
+			@include('layouts.partials.alert')
 			@endif
 			<form method="post" action="{{ route('post') }}">
 				@csrf

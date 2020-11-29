@@ -1,7 +1,8 @@
 <!--navigation-->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
 	<a class="navbar-brand" href="#">{{ config('app.name') }}</a>
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar"
+		aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
 
@@ -33,7 +34,8 @@
 			@endguest
 			@auth
 			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="#" id="dropdown-p" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ auth()->user()->full_name }}</a>
+				<a class="nav-link dropdown-toggle" href="#" id="dropdown-p" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false">{{ auth()->user()->full_name }}</a>
 				<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-p">
 					<a class="dropdown-item" href="#">Settings</a>
 					<a class="dropdown-item" href="#">Action</a>
