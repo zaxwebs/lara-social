@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Follow;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -84,6 +85,11 @@ class User extends Authenticatable
 
     public function follows()
     {
-        return $this->hasMany(Follow::class)->orderBy('created_at', 'desc');
+        return $this->belongsToMany(User::class, 'follows', 'user_id', 'followed_id')->orderBy('created_at', 'desc');
+    }
+
+    public function followers()
+    {
+        return $this->belongsToMany(User::class, 'follows', 'followed_id', 'user_id')->orderBy('created_at', 'desc');
     }
 }

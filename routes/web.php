@@ -5,6 +5,8 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\SignupController;
 use App\Http\Controllers\FeedController;
 use App\Http\Controllers\FollowController;
+use App\Http\Controllers\FollowersController;
+use App\Http\Controllers\FollowingController;
 use App\Http\Controllers\HighlightController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PostController;
@@ -45,4 +47,6 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/unhighlight/{post}', [UnhighlightController::class, 'destroy'])->name('unhighlight');
     Route::post('/like/{post}', [LikeController::class, 'store'])->name('like');
     Route::delete('/unlike/{post}', [UnlikeController::class, 'destroy'])->name('unlike');
+    Route::get('/followers/{user:username}', [FollowersController::class, 'index'])->name('followers');
+    Route::get('/following/{user:username}', [FollowingController::class, 'index'])->name('following');
 });
