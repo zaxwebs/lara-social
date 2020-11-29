@@ -13,7 +13,7 @@ class FeedController extends Controller
         // add self to follows array
         $follows[] = auth()->user();
 
-        $posts = Post::whereIn('user_id', $follows)->orderBy('created_at', 'desc')->simplePaginate(10);
+        $posts = Post::whereIn('user_id', $follows)->with('user')->orderBy('created_at', 'desc')->simplePaginate(10);
 
         return view('feed', compact('posts'));
     }

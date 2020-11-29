@@ -22,7 +22,7 @@ class ProfileController extends Controller
             $query = $query->where('highlighted', 1);
         }
 
-        $posts = $query->simplePaginate(10);
+        $posts = $query->with('user')->simplePaginate(10);
 
         return view('profile', compact('user', 'posts'));
     }
