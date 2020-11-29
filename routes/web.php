@@ -40,9 +40,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/post', [PostController::class, 'store'])->name('post');
     Route::get('/profile/{user:username?}', [ProfileController::class, 'show'])->name('profile');
     Route::post('/follow/{user:username}', [FollowController::class, 'store'])->name('follow');
-    Route::post('/unfollow/{user:username}', [UnfollowController::class, 'store'])->name('unfollow');
+    Route::delete('/unfollow/{user:username}', [UnfollowController::class, 'destroy'])->name('unfollow');
     Route::post('/highlight/{post}', [HighlightController::class, 'store'])->name('highlight');
-    Route::post('/unhighlight/{post}', [UnhighlightController::class, 'store'])->name('unhighlight');
+    Route::delete('/unhighlight/{post}', [UnhighlightController::class, 'destroy'])->name('unhighlight');
     Route::post('/like/{post}', [LikeController::class, 'store'])->name('like');
-    Route::post('/unlike/{post}', [UnlikeController::class, 'store'])->name('unlike');
+    Route::delete('/unlike/{post}', [UnlikeController::class, 'destroy'])->name('unlike');
 });

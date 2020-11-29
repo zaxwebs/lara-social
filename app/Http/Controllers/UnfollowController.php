@@ -7,7 +7,7 @@ use App\Models\User;
 
 class UnfollowController extends Controller
 {
-    public function store(User $user)
+    public function destroy(User $user)
     {
         // validate
         $follows = Follow::where('user_id', auth()->user()->id)->where('followed_id', $user->id);

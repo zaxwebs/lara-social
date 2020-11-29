@@ -14,6 +14,7 @@
 		</form>
 		@else
 		<form method="post" class="d-inline" action="{{ route('unlike', $post) }}">
+			@method('delete')
 			@csrf
 			<button class="btn btn-link btn-sm p-0 mr-2">Liked</button>
 		</form>
@@ -26,6 +27,7 @@
 		</form>
 		@else
 		<form class="d-inline" method="post" action="{{ route('unhighlight', $post) }}">
+			@method('delete')
 			@csrf
 			<button class="btn btn-link btn-sm p-0">Highlighted</button>
 		</form>

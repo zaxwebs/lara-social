@@ -45,6 +45,7 @@
 			</button>
 			<div class="dropdown-menu" aria-labelledby="following-dropdown">
 				<form class="dropdown-item p-0" method="post" action="{{ route('unfollow', $user) }}">
+					@method('delete')
 					@csrf
 					<button class="btn btn-link px-4 py-1 w-100 text-left" role="link">Unfollow</button>
 				</form>

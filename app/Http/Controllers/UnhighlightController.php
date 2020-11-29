@@ -7,7 +7,7 @@ use App\Models\Post;
 class UnhighlightController extends Controller
 {
     //
-    public function store(Post $post)
+    public function destroy(Post $post)
     {
         // already not highlighted?
         if (!$post->highlighted === 1) {
