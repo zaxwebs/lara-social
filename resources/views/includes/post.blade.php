@@ -7,7 +7,7 @@
 		{!! nl2br(e($post->body)) !!}
 	</div>
 	<div>
-		@if(auth()->user()->is_viewer)
+		@if($post->user->is_viewer)
 		@if(!$post->is_highlighted)
 		<form method="post" action="{{ route('highlight', $post) }}">
 			@csrf
