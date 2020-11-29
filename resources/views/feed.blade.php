@@ -16,6 +16,13 @@
 				<button type="submit" class="btn btn-primary">Publish your post</button>
 			</form>
 		</div>
+
+		<div class="mb-3">
+			<h4 class="mb-0">Posts</h4>
+		</div>
+		@foreach ($posts as $post)
+		@include('includes.post')
+		@endforeach
 	</div>
 </div>
 @endsection
