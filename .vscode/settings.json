@@ -3,5 +3,6 @@
 		"unhighlight",
 		"unhighlighted",
 		"unliked"
-	]
+	],
+	"git.ignoreLimitWarning": true
 }

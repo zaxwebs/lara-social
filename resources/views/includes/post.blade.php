@@ -7,6 +7,8 @@
 		{!! nl2br(e($post->body)) !!}
 	</div>
 	<div>
+
+		@if(!$post->user->is_viewer)
 		@if(!$post->is_liked)
 		<form method="post" class="d-inline" action="{{ route('like', $post) }}">
 			@csrf
@@ -19,6 +21,8 @@
 			<button class="btn btn-link btn-sm p-0 mr-2">Liked</button>
 		</form>
 		@endif
+		@endif
+
 		@if($post->user->is_viewer)
 		@if(!$post->is_highlighted)
 		<form class="d-inline" method="post" action="{{ route('highlight', $post) }}">
