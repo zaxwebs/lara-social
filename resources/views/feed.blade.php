@@ -23,6 +23,7 @@
 		@foreach ($posts as $post)
 		@include('includes.post')
 		@endforeach
+		{{ $posts->appends(request()->query())->links() }}
 	</div>
 </div>
 @endsection
