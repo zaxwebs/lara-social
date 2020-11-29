@@ -6,10 +6,12 @@ use App\Http\Controllers\Auth\SignupController;
 use App\Http\Controllers\FeedController;
 use App\Http\Controllers\FollowController;
 use App\Http\Controllers\HighlightController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UnfollowController;
 use App\Http\Controllers\UnhighlightController;
+use App\Http\Controllers\UnlikeController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -41,4 +43,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/unfollow/{user:username}', [UnfollowController::class, 'store'])->name('unfollow');
     Route::post('/highlight/{post}', [HighlightController::class, 'store'])->name('highlight');
     Route::post('/unhighlight/{post}', [UnhighlightController::class, 'store'])->name('unhighlight');
+    Route::post('/like/{post}', [LikeController::class, 'store'])->name('like');
+    Route::post('/unlike/{post}', [UnlikeController::class, 'store'])->name('unlike');
 });
