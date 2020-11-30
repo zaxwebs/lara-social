@@ -40,6 +40,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
     Route::get('/home', [FeedController::class, 'index'])->name('home');
     Route::post('/post', [PostController::class, 'store'])->name('post');
+
+    Route::get('/profile/{user:username}/followers', [FollowersController::class, 'index'])->name('followers');
+    Route::get('/profile/{user:username}/following', [FollowingController::class, 'index'])->name('following');
     Route::get('/profile/{user:username?}', [ProfileController::class, 'show'])->name('profile');
     Route::post('/follow/{user:username}', [FollowController::class, 'store'])->name('follow');
     Route::delete('/unfollow/{user:username}', [UnfollowController::class, 'destroy'])->name('unfollow');
@@ -47,6 +50,4 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/unhighlight/{post}', [UnhighlightController::class, 'destroy'])->name('unhighlight');
     Route::post('/like/{post}', [LikeController::class, 'store'])->name('like');
     Route::delete('/unlike/{post}', [UnlikeController::class, 'destroy'])->name('unlike');
-    Route::get('/followers/{user:username}', [FollowersController::class, 'index'])->name('followers');
-    Route::get('/following/{user:username}', [FollowingController::class, 'index'])->name('following');
 });

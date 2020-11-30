@@ -8,8 +8,8 @@ class FollowersController extends Controller
 {
     public function index(User $user)
     {
-        $followers = $user->followers()->simplePaginate(100);
-
-        return view('followers', compact('followers'));
+        $heading = "Followers";
+        $followers = $user->followers()->simplePaginate(50);
+        return view('follows', compact('heading', 'followers', 'user'));
     }
 }
