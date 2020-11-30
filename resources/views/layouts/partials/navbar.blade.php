@@ -1,5 +1,5 @@
 <!--navigation-->
-<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
+<nav class="navbar navbar-expand-md navbar-dark bg-primary mb-3">
 	<a class="navbar-brand" href="#">{{ config('app.name') }}</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar"
 		aria-expanded="false" aria-label="Toggle navigation">
