@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 
-class FollowersController extends Controller
+class FollowerController extends Controller
 {
     public function index(User $user)
     {

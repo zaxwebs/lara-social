@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Follow;
 use App\Models\User;
+use App\Notifications\UserFollowed;
 
 class FollowController extends Controller
 {
@@ -25,6 +26,9 @@ class FollowController extends Controller
             'user_id' => auth()->user()->id,
             'followed_id' => $user->id,
         ]);
+
+        //notify
+        $user->notify(new UserFollowed(auth()->user()));
 
         return redirect()->back()->with('success', "You are now following {$user->first_name}.");
     }
