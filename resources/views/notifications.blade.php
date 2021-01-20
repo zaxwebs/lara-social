@@ -6,7 +6,10 @@
 
 @foreach ($notifications as $notification)
 <div class="panel">
-	{{ $notification->type }}
+	@if($notification->type === 'App\Notifications\UserFollowed')
+	<a href="{{ route('profile', $notification->models['User']) }}">{{ $notification->models['User']->full_name }}</a>
+	followed you.
+	@endif
 </div>
 @endforeach
 

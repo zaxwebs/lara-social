@@ -54,7 +54,7 @@ class UserFollowed extends Notification
     {
         return [
             //
-            'user_id' => $this->user->id
+            'models' => ['User' => $this->user->id]
         ];
     }
 }
