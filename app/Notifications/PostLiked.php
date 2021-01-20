@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Notifications;
+
+use App\Models\Post;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class UserFollowed extends Notification
+class PostLiked extends Notification
 {
     use Queueable;
 
@@ -15,8 +17,9 @@ class UserFollowed extends Notification
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Post $post)
     {
+        $this->post = $post;
     }
 
     /**
@@ -38,6 +41,10 @@ class UserFollowed extends Notification
      */
     public function toMail($notifiable)
     {
+        return (new MailMessage)
+                    ->line('The introduction to the notification.')
+                    ->action('Notification Action', url('/'))
+                    ->line('Thank you for using our application!');
     }
 
     /**
@@ -50,7 +57,10 @@ class UserFollowed extends Notification
     {
         return [
             //
-            'models' => ['User' => auth()->user()->id]
+            'models' => [
+                'Post' => $this->post->id,
+                'User' => auth()->user()->id,
+            ]
         ];
     }
 }

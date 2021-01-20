@@ -28,7 +28,7 @@ class FollowController extends Controller
         ]);
 
         //notify
-        $user->notify(new UserFollowed(auth()->user()));
+        $user->notify(new UserFollowed());
 
         return redirect()->back()->with('success', "You are now following {$user->first_name}.");
     }

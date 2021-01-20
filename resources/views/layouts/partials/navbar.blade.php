@@ -34,6 +34,9 @@
 			</li>
 			@endguest
 			@auth
+			<li class="nav-item">
+				<a class="nav-link" href="{{ route('notifications') }}">Notifications</a>
+			</li>
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="dropdown-p" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false">{{ auth()->user()->full_name }}</a>

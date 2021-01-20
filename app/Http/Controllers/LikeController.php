@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Like;
 use App\Models\Post;
+use App\Models\User;
+use App\Notifications\PostLiked;
 
 class LikeController extends Controller
 {
@@ -22,6 +24,10 @@ class LikeController extends Controller
             'user_id' => auth()->id(),
             'post_id' => $post->id,
         ]);
+
+        //notify writer
+        $user = User::find($post->user_id);
+        $user->notify(new PostLiked($post));
 
         return redirect()->back();
     }

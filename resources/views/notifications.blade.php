@@ -9,6 +9,12 @@
 	@if($notification->type === 'App\Notifications\UserFollowed')
 	<a href="{{ route('profile', $notification->models['User']) }}">{{ $notification->models['User']->full_name }}</a>
 	followed you.
+	@elseif($notification->type === 'App\Notifications\PostLiked')
+	<div class="mb-4">
+		<a href="{{ route('profile', $notification->models['User']) }}">{{ $notification->models['User']->full_name }}</a>
+		liked your post.
+	</div>
+	@include('includes.post', ['post' => $notification->models['Post']])
 	@endif
 </div>
 @endforeach
