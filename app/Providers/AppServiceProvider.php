@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Notifications\DatabaseNotificationCollection;
 
@@ -37,5 +38,7 @@ class AppServiceProvider extends ServiceProvider
                 }
             });
         });
+
+        // Add unread notification count variable to all views
     }
 }
