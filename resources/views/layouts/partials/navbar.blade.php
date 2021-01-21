@@ -8,15 +8,6 @@
 
 	<div class="collapse navbar-collapse" id="navbar">
 		<ul class="navbar-nav mr-auto">
-			@auth
-			<li class="nav-item {{ Route::is('home') ? 'active' : null}}">
-				<a class="nav-link" href="{{ route('home') }}">Home</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link {{ Request::is('profile/' . auth()->user()->username) || Request::is('profile')  ? 'active' : null }}"
-					href="{{ route('profile') }}">Profile</a>
-			</li>
-			@endauth
 			<li class="nav-item">
 				<a class="nav-link" href="#">About</a>
 			</li>

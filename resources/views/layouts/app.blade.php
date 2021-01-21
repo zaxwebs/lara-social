@@ -11,7 +11,7 @@
 
 <body>
 	@include('layouts.partials.navbar')
-	<div class="@yield('container', 'container-fluid')">
+	<div class="@yield('container', 'container')">
 		@if(!Session::has('alert.location'))
 		@include('layouts.partials.alert')
 		@endif
