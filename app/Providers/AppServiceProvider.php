@@ -3,8 +3,10 @@
 namespace App\Providers;
 
 use Illuminate\Support\Arr;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
+use App\Http\Database\DatabaseNotification;
 use Illuminate\Notifications\DatabaseNotificationCollection;
 
 class AppServiceProvider extends ServiceProvider
@@ -16,7 +18,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
     }
 
     /**
@@ -27,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-        DatabaseNotificationCollection::macro('fillModels', function () {
+        DatabaseNotificationCollection::macro('withModels', function () {
             return $this->each(function ($notification) {
                 if(Arr::exists($notification->data, 'models')) {
                     foreach($notification->data['models'] as $key => $id) {
@@ -38,7 +39,5 @@ class AppServiceProvider extends ServiceProvider
                 }
             });
         });
-
-        // Add unread notification count variable to all views
     }
 }

@@ -8,7 +8,7 @@ class NotificationController extends Controller
 {
     //
     public function index() {
-        $notifications = auth()->user()->notifications->fillModels();
+        $notifications = auth()->user()->notifications->withModels()->simplePaginate(10);
         return view('notifications', compact('notifications'));
     }
 }

@@ -18,5 +18,5 @@
 	@endif
 </div>
 @endforeach
-
+{{ $notifications->appends(request()->query())->links() }}
 @endsection
