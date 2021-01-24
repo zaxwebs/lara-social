@@ -2,7 +2,15 @@
 
 @section('middle')
 
-<h4 class="mb-3">Notifications</h4>
+<div class="d-flex justify-content-between">
+	<h4 class="mb-3">{{ $title }}</h4>
+	@if(Route::is('notifications'))
+	<a href="{{ route('notifications.unread') }}">Unread Notifications</a>
+	@else
+	<a href="{{ route('notifications') }}">All Notifications</a>
+	@endif
+</div>
+
 
 @foreach ($notifications as $notification)
 <div class="mb-4">

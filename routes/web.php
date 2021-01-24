@@ -56,4 +56,5 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/unlike/{post}', [UnlikeController::class, 'destroy'])->name('unlike');
 
     Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications');
+    Route::get('/notifications/unread', [NotificationController::class, 'index'])->name('notifications.unread');
 });
