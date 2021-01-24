@@ -25,17 +25,6 @@
 			</li>
 			@endguest
 			@auth
-			<li class="nav-item">
-				<a class="nav-link" href="{{ route('notifications') }}">
-					Notifications
-
-					@php($unread_notifications_count = count(auth()->user()->unreadNotifications))
-
-					@if($unread_notifications_count)
-					<span class="badge badge-danger">{{ $unread_notifications_count }}</span>
-					@endif
-				</a>
-			</li>
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="dropdown-p" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false">{{ auth()->user()->full_name }}</a>
