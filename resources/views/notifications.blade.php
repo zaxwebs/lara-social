@@ -11,7 +11,7 @@
 	@endif
 </div>
 
-
+@if($notifications->count())
 @foreach ($notifications as $notification)
 <div class="mb-4">
 	@if($notification->type === 'App\Notifications\UserFollowed')
@@ -25,6 +25,9 @@
 	@include('includes.post', ['post' => $notification->models['Post']])
 	@endif
 </div>
-@endforeach
 {{ $notifications->appends(request()->query())->links() }}
+@endforeach
+@else
+<div class="alert alert-info">Nothing to display.</div>
+@endif
 @endsection

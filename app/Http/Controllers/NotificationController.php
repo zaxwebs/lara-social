@@ -20,6 +20,8 @@ class NotificationController extends Controller
             $title = 'Unread Notifications';
         }
 
+        $notifications->markAsRead();
+
         $notifications = $notifications->withModels()->simplePaginate(10);
 
         return view('notifications', compact('notifications', 'title'));
