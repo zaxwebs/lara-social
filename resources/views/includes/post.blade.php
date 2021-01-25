@@ -5,10 +5,12 @@
 	</div>
 	<div class="mb-2">
 		{!! nl2br(e($post->body)) !!}
-		@if($post->image)
-		<img class="img-fluid" src="{{ asset('storage/uploads/posts/' . $post->image) }}">
-		@endif
 	</div>
+	@if($post->image)
+	<div class="mb-2">
+		<img class="img-fluid" src="{{ asset('storage/uploads/posts/' . $post->image) }}">
+	</div>
+	@endif
 	<div>
 
 		@if(!$post->user->is_viewer)
