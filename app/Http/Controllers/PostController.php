@@ -16,8 +16,8 @@ class PostController extends Controller
         //validate
         $this->validate($request,
             [
-                'post_body' => 'required|max:1000',
-                'post_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+                'post_body' => 'required_without:post_image|max:1000',
+                'post_image' => 'required_without:post_body|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
             ],
             [],
             [
