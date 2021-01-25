@@ -10921,3 +10921,7 @@ a.text-dark:focus {
   padding-right: 1rem;
 }
 
+.alert ul {
+  margin-bottom: 0;
+}
+

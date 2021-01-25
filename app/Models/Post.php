@@ -14,6 +14,7 @@ class Post extends Model
     protected $fillable = [
         'user_id',
         'body',
+        'image',
     ];
 
     protected $appends = ['is_highlighted'];

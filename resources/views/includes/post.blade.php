@@ -5,6 +5,9 @@
 	</div>
 	<div class="mb-2">
 		{!! nl2br(e($post->body)) !!}
+		@if($post->image)
+		<img class="img-fluid" src="{{ asset('storage/uploads/posts/' . $post->image) }}">
+		@endif
 	</div>
 	<div>
 
