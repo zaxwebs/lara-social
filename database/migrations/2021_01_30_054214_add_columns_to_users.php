@@ -15,7 +15,7 @@ class AddColumnsToUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->text('bio')->after('username')->nullable();
-            $table->string('profile_image')->after('bio')->nullable();
+            $table->string('image')->after('bio')->nullable();
         });
     }
 
@@ -29,7 +29,7 @@ class AddColumnsToUsers extends Migration
         Schema::table('users', function (Blueprint $table) {
             //
             $table->dropColumn('bio');
-            $table->dropColumn('profile_image');
+            $table->dropColumn('image');
         });
     }
 }
