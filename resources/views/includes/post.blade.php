@@ -1,6 +1,6 @@
 <div class="panel">
-	<div class="d-flex justify-content-between">
-		<div><a href="{{ route('profile') }}/{{ $post->user->username }}">{{ $post->user->full_name }}</a></div>
+	<div class="d-flex justify-content-between mb-2">
+		<x-profile-tile :user="$post->user" />
 		<small class="text-muted">{{ $post->created_at->diffForHumans() }}</small>
 	</div>
 	<div class="mb-2">
