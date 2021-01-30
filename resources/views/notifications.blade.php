@@ -28,6 +28,6 @@
 {{ $notifications->appends(request()->query())->links() }}
 @endforeach
 @else
-<div class="alert alert-info">Nothing to display.</div>
+<div class="alert alert-info">No notifications to display.</div>
 @endif
 @endsection

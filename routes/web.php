@@ -17,6 +17,7 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\SignupController;
 use App\Http\Controllers\UnhighlightController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\Settings\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,4 +58,6 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications');
     Route::get('/notifications/unread', [NotificationController::class, 'index'])->name('notifications.unread');
+
+    Route::get('/settings', IndexController::class)->name('settings');
 });

@@ -25,17 +25,15 @@ class PostController extends Controller
                 'post_image' => 'attached file',
             ]);
 
-        $path = NULL;
-
         if($request->hasFile('post_image')) {
-            $path = $request->file('post_image')->store('public/uploads/posts');
+            $request->file('post_image')->store('public/uploads/posts');
         }
 
         // store
         Post::create([
             'user_id' => auth()->user()->id,
             'body' => $request->get('post_body'),
-            'image' => $request->file('post_image')->hashName(),
+            'image' => $request->hasFile('post_image') ?? $request->file('post_image')->hashName() || null,
         ]);
 
         return redirect()->back()->with('success', 'Your post was published successfully.');
