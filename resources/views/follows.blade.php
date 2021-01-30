@@ -9,10 +9,7 @@
 @if($followers->count())
 @foreach ($followers as $follower)
 <div class="panel">
-	<div class="d-flex justify-content-between">
-		<div><a href="{{ route('profile') }}/{{ $follower->username }}">{{ $follower->full_name }}</a></div>
-		<small class="text-muted">{{ $follower->username }}</small>
-	</div>
+	<x-profile-tile :user="$follower" />
 </div>
 {{ $followers->links() }}
 @endforeach

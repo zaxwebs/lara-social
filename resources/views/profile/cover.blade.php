@@ -1,5 +1,5 @@
 <div class="panel">
-	<div class="d-flex align-items-center mb-3">
+	<div class="d-flex mb-4">
 		<x-profile-image :image="$user->image" size="lg" />
 	</div>
 
