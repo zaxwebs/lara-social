@@ -18,6 +18,7 @@ use App\Http\Controllers\Auth\SignupController;
 use App\Http\Controllers\UnhighlightController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\Settings\IndexController;
+use App\Http\Controllers\Settings\ProfileController as SettingsProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,4 +61,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/notifications/unread', [NotificationController::class, 'index'])->name('notifications.unread');
 
     Route::get('/settings', IndexController::class)->name('settings');
+    Route::put('/settings/profile', [SettingsProfileController::class, 'update'])->name('settings.profile');
 });

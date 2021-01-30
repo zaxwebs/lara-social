@@ -33,7 +33,7 @@ class PostController extends Controller
         Post::create([
             'user_id' => auth()->user()->id,
             'body' => $request->get('post_body'),
-            'image' => $request->hasFile('post_image') ?? $request->file('post_image')->hashName() || null,
+            'image' => $request->hasFile('post_image') ? $request->file('post_image')->hashName() : null,
         ]);
 
         return redirect()->back()->with('success', 'Your post was published successfully.');

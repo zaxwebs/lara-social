@@ -3,8 +3,9 @@
 	@if(Session::get('alert.location') === 'settings_profile')
 	@include('layouts.partials.alert')
 	@endif
-	<form method="post" action="{{ route('settings') }}" enctype="multipart/form-data">
+	<form method="post" action="{{ route('settings.profile') }}" enctype="multipart/form-data">
 		@csrf
+		@method('put')
 		<div class="form-group">
 			<label for="settings_profile_image">Profile Image</label>
 			<br />
@@ -12,8 +13,7 @@
 		</div>
 		<div class="form-group">
 			<label for="settings_profile_bio">Bio</label>
-			<textarea name="settings_profile_bio" class="form-control" id="post"
-				rows="4">{{ $user->bio || old('settings_profile_bio') }}</textarea>
+			<textarea name="settings_profile_bio" class="form-control" id="post" rows="4">{{ $user->bio }}</textarea>
 		</div>
 		<button type="submit" class="btn btn-primary">Update Profile</button>
 	</form>
