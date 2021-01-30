@@ -1,4 +1,7 @@
 <div class="panel">
+	<div class="d-flex align-items-center mb-3">
+		<x-profile-image :image="$user->image" size="lg" />
+	</div>
 
 	<div class="d-flex justify-content-between">
 		<h1>{{ $user->full_name }}</h1>

@@ -59,6 +59,11 @@ class User extends Authenticatable
         return "{$this->first_name} {$this->last_name}";
     }
 
+    public function getImageAttribute()
+    {
+        return $this->attributes['image'] ? asset('storage/uploads/profile-images/' . $this->attributes['image']) : asset('images/user.png');
+    }
+
     public function getIsViewerAttribute()
     {
         return $this->id === auth()->user()->id;

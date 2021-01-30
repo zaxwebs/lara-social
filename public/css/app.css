@@ -10925,3 +10925,27 @@ a.text-dark:focus {
   margin-bottom: 0;
 }
 
+.profile-image {
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 50% 50%;
+     object-position: 50% 50%;
+  max-width: 100%;
+}
+
+.profile-image-sm {
+  width: 40px;
+  height: 40px;
+}
+
+.profile-image-md {
+  width: 100px;
+  height: 100px;
+}
+
+.profile-image-lg {
+  width: 200px;
+  height: 200px;
+}
+
